@@ -8,6 +8,16 @@ function App() {
   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
   console.log("This my app testing commit from github")
 
+  // Using fetch
+fetch('https://wj540zj7th.execute-api.us-west-2.amazonaws.com/dev')
+  .then(response => response.json())
+  .then(data => {
+    console.log('Response:', data);
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+
   useEffect(() => {
     client.models.Todo.observeQuery().subscribe({
       next: (data) => setTodos([...data.items]),
