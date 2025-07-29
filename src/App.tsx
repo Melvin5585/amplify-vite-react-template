@@ -6,6 +6,7 @@ const client = generateClient<Schema>();
 
 function App() {
   const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
+  console.log("This my app testing commit from github")
 
   useEffect(() => {
     client.models.Todo.observeQuery().subscribe({
